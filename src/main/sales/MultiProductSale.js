@@ -18,7 +18,7 @@ class MultiProductSale {
 
     profit() {
         let products = this.unitsToBuy.calculateProducts(this.singleOrPackProduct);
-        return new Profit(accumulatedCost(products).minus(this.sellingPrice));
+        return new Profit(this.sellingPrice.minus(accumulatedCost(products)));
     }
 
 }

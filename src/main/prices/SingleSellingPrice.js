@@ -5,7 +5,7 @@ class SingleSellingPrice {
     }
 
     minus(cost) {
-        return this.priceValue - cost;
+        return cost.minus(this.priceValue);
     }
 
 }

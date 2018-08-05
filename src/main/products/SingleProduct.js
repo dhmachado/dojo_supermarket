@@ -7,7 +7,7 @@ class SingleProduct {
     }
 
     profit(price) {
-        return new Profit(this.cost.minus(price));
+        return new Profit(price.minus(this.cost));
     }
 
     accumulatedCost(accumulatedTotal) { 

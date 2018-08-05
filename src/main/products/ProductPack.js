@@ -11,7 +11,7 @@ class ProductPack {
     }
 
     profit(price) {
-        return new Profit(this.unitCost.minus(price));
+        return new Profit(price.minus(this.unitCost));
     }
 
     obtainProducts(quantity) {

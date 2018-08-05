@@ -5,7 +5,7 @@ class Cost {
     }
 
     minus(price) {
-        return price.minus(this.costValue);
+        return price - this.costValue;
     }
 
     plus(anotherCost) {
