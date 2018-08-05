@@ -7,8 +7,9 @@ import SingleProduct from '../main/products/SingleProduct';
 import ProductPack from '../main/products/ProductPack';
 
 import Cost from '../main/Cost';
-import SingleSellingPrice from '../main/SingleSellingPrice';
 import Profit from '../main/Profit';
+import UnitsToBuy from '../main/units/UnitsToBuy';
+import SingleSellingPrice from '../main/SingleSellingPrice';
 
 describe('The supermarket is', () => {
 
@@ -36,4 +37,11 @@ describe('The supermarket is', () => {
     expect(sale.profit().toJson()).to.be.equal(new Profit(280).toJson());
   });
 
+  it('Selling many products from a pack that has a profit equal to selling price minus accumulated cost of some products of the pack', () => {
+    let productPack = new ProductPack(50, new Cost(1000));
+    let sale = new MultiProductSale(productPack, new SingleSellingPrice(300), new UnitsToBuy(5));
+
+    expect(sale.profit().toJson()).to.be.equal(new Profit(200).toJson());
+  });
+  
 });
