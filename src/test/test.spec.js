@@ -3,7 +3,9 @@ import {expect} from 'chai';
 import UnitSale from '../main/sales/UnitSale';
 import MultiProductSale from '../main/sales/MultiProductSale';
 
-import SingleProduct from '../main/SingleProduct';
+import SingleProduct from '../main/products/SingleProduct';
+import ProductPack from '../main/products/ProductPack';
+
 import Cost from '../main/Cost';
 import SingleSellingPrice from '../main/SingleSellingPrice';
 import Profit from '../main/Profit';
@@ -25,6 +27,13 @@ describe('The supermarket is', () => {
     let sale = new MultiProductSale(products, new SingleSellingPrice(300));
 
     expect(sale.profit().toJson()).to.be.equal(new Profit(80).toJson());
+  });
+
+  it('Selling a single product from a pack that has a profit equal to selling price minus cost of one product of the pack', () => {
+    let productPack = new ProductPack(50, new Cost(1000));
+    let sale = new UnitSale(productPack, new SingleSellingPrice(300));
+
+    expect(sale.profit().toJson()).to.be.equal(new Profit(280).toJson());
   });
 
 });
