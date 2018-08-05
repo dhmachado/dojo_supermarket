@@ -10,6 +10,10 @@ class SingleProduct {
         return new Profit(this.cost.minus(price));
     }
 
+    accumulatedCost(accumulatedTotal) { 
+        return accumulatedTotal.plus(this.cost);
+    }
+
 }
 
 export default SingleProduct;

@@ -8,6 +8,10 @@ class Cost {
         return price.minus(this.costValue);
     }
 
+    plus(anotherCost) {
+        return new Cost(this.costValue + anotherCost.costValue);
+    }
+
 }
 
 export default Cost;
