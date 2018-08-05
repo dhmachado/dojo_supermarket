@@ -1,6 +1,7 @@
 # Dojo Supermarket
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/dhmachado/dojo_supermarket?branch=master)](https://bettercodehub.com/)
+[![CircleCI](https://circleci.com/gh/dhmachado/dojo_supermarket/tree/master.svg?style=svg)](https://circleci.com/gh/dhmachado/dojo_supermarket/tree/master)
 
 ### What are dojos ?
 - A Coding Dojo is a meeting where a bunch of coders get together to work on a programming challenge. They are there have fun and to engage in [DeliberatePractice](https://codingdojo.org/DeliberatePractice/) in order to improve their skills.
