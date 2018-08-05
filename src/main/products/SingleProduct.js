@@ -1,4 +1,4 @@
-import Profit from "./Profit";
+import Profit from "../Profit";
 
 class SingleProduct {
 

@@ -1,12 +1,12 @@
 class UnitSale {
 
-    constructor(product, sellingPrice) {
-        this.product = product;
+    constructor(singleOrPackProduct, sellingPrice) {
+        this.singleOrPackProduct = singleOrPackProduct;
         this.sellingPrice = sellingPrice;
     }
 
     profit() {
-        return this.product.profit(this.sellingPrice);
+        return this.singleOrPackProduct.profit(this.sellingPrice);
     }
 
 }
