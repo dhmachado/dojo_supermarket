@@ -6,10 +6,14 @@ import MultiProductSale from '../main/sales/MultiProductSale';
 import SingleProduct from '../main/products/SingleProduct';
 import ProductPack from '../main/products/ProductPack';
 
+import SingleSellingPrice from '../main/prices/SingleSellingPrice';
+import BarteringSellingPrice from '../main/prices/BarteringSellingPrice';
+
+import UnitsToBuy from '../main/units/UnitsToBuy';
+
+import Cow from '../main/Cow';
 import Cost from '../main/Cost';
 import Profit from '../main/Profit';
-import UnitsToBuy from '../main/units/UnitsToBuy';
-import SingleSellingPrice from '../main/SingleSellingPrice';
 
 describe('The supermarket is', () => {
 
@@ -43,5 +47,12 @@ describe('The supermarket is', () => {
 
     expect(sale.profit().toJson()).to.be.equal(new Profit(200).toJson());
   });
-  
+
+  it('Bartering products', () => {
+    let product = new SingleProduct(new Cost(100));
+    let sale = new UnitSale(product, new BarteringSellingPrice(new Cow()));
+
+    expect(sale.profit().toJson()).to.be.equal(new Profit(new Cow()).toJson());
+  });
+
 });
