@@ -1,21 +1,24 @@
 import Cost from "../Cost";
 import Profit from "../Profit";
+import SingleUnitBuy from "../units/SingleUnitBuy";
 
-const accumulatedCost = function(products) {
-    return products.reduce((acc, product) => {
-        return product.accumulatedCost(acc);
+const accumulatedCost = function(singleOrPackProduct) {
+    return singleOrPackProduct.reduce((acc, productOrPack) => {
+        return productOrPack.accumulatedCost(acc);
     }, new Cost(0));
 }
 
 class MultiProductSale {
 
-    constructor(products, sellingPrice) {
-        this.products = products;
+    constructor(singleOrPackProduct, sellingPrice, unitsToBuy = new SingleUnitBuy()) {
+        this.unitsToBuy = unitsToBuy;
+        this.singleOrPackProduct = singleOrPackProduct;
         this.sellingPrice = sellingPrice;
     }
 
     profit() {
-        return new Profit(accumulatedCost(this.products).minus(this.sellingPrice));
+        let products = this.unitsToBuy.calculateProducts(this.singleOrPackProduct);
+        return new Profit(accumulatedCost(products).minus(this.sellingPrice));
     }
 
 }
