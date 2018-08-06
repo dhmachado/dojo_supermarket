@@ -21,7 +21,7 @@ describe('The supermarket is', () => {
     let product = new SingleProduct(new Cost(100));
     let sale = new UnitSale(product, new SingleSellingPrice(300));
 
-    expect(sale.profit().toJson()).to.be.equal(new Profit(200).toJson());
+    expect(sale.profit().toJson()).to.be.equal(new Profit(100).toJson());
   });
 
   it('Selling many products that has a profit equal to selling price minus accumulated cost', () => {
